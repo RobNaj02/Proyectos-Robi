@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Apolion 3D Studio</title>
+  <title>NovaKraft 3D Studio</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f0f0f0;
+      background: #1e1e1e;
+      color: white;
     }
 
     header {
@@ -30,59 +31,32 @@
     }
 
     nav {
-      background-color: #333;
-      display: flex;
-      justify-content: center;
+      background-color: #121212 !important;
     }
 
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
+    nav a.nav-link,
+    nav .navbar-brand {
+      color: #e0e0e0 !important;
     }
 
-    nav li {
-      position: relative;
+    nav a.nav-link:hover {
+      color: #ffffff !important;
     }
 
-    nav a {
-      display: block;
+    .dropdown-menu {
+      background-color: #2c2c2c;
+    }
+
+    .dropdown-item {
       color: white;
-      padding: 14px 20px;
-      text-decoration: none;
     }
 
-    nav a:hover {
-      background-color: #555;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
+    .dropdown-item:hover {
       background-color: #444;
-      min-width: 160px;
-      z-index: 1;
-    }
-
-    .dropdown-content a {
-      color: white;
-      padding: 12px 16px;
-      display: block;
-      text-align: left;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #666;
-    }
-
-    li.dropdown:hover .dropdown-content {
-      display: block;
     }
 
     .container {
-      padding: 20px;
+      padding: 40px 20px;
     }
 
     .product-grid {
@@ -93,12 +67,12 @@
     }
 
     .product {
-      background: white;
+      background: #2a2a2a;
       border-radius: 10px;
       padding: 15px;
       width: 100%;
       max-width: 250px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
       text-align: center;
     }
 
@@ -108,28 +82,33 @@
     }
 
     footer {
-      background-color: #222;
+      background-color: #111;
       color: white;
       text-align: center;
       padding: 15px;
-      margin-top: 30px;
     }
 
     .contact-section {
       display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
       gap: 20px;
-      justify-content: space-between;
-      padding: 20px;
+      justify-content: center;
+      padding: 40px 20px;
+      background-color: #252525;
     }
 
-    .contact-form {
-      flex: 1;
-      min-width: 300px;
-      max-width: 500px;
-      background: white;
+    .contact-form, .map-container {
+      flex: 1 1 400px;
+      background: #2a2a2a;
       padding: 20px;
       border-radius: 10px;
+      max-width: 600px;
+    }
+
+    .contact-form h2,
+    .map-container h2 {
+      color: white;
     }
 
     .contact-form input,
@@ -138,12 +117,14 @@
       padding: 10px;
       margin-top: 10px;
       margin-bottom: 20px;
-      border: 1px solid #ccc;
+      border: 1px solid #444;
       border-radius: 5px;
+      background: #1a1a1a;
+      color: white;
     }
 
     .contact-form button {
-      background-color: #333;
+      background-color: #e91e63;
       color: white;
       border: none;
       padding: 10px 20px;
@@ -152,9 +133,10 @@
     }
 
     .map {
-      flex: 1;
-      min-width: 300px;
-      height: 400px;
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      overflow: hidden;
     }
 
     .whatsapp-float {
@@ -174,56 +156,67 @@
       100% { transform: scale(1); }
     }
 
-    @media (max-width: 768px) {
-      header {
-        height: 40vh;
-      }
+    .wave-container {  
+      height: 20vh;
+      background-color: #1e1e1e;
+      position: relative;
+    }
 
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-      }
+    .wave-container::before {   
+      content: "";
+      width: 100%;
+      height: 65px;
+      position: absolute;
+      bottom: -0.3%;
+      left: 0;
+      background-size: auto;
+      background-repeat: repeat no-repeat;
+      background-position: 75vw bottom;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200  134' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 98L50 92C100 86 200 74 300 50C400 26 500 -10 600 2C700 14 800 74 900 98C1000 122 1100 110 1150 104L1200 98V134H1150C1100 134 1000 134 900 134C800 134 700 134 600 134C500 134 400 134 300 134C200 134 100 134 50 134H0V98Z' fill='%23262626'/></svg>");
+    }
 
+    @media(max-width:850px) {
+      .wave-container::before {    
+        height: 32.5px
+      }  
+      
       .contact-section {
         flex-direction: column;
         align-items: center;
       }
-
-      .map {
-        height: 300px;
-      }
     }
+
   </style>
 </head>
 <body>
 
 <header>
-  <h1 style="margin: 5;">Apolion Printing Studio!</h1>
-  <p style="margin: 5;">Productos únicos impresos en 3D para todos los gustos</p>
+  <h1>NovaKraft 3D Studio</h1>
+  <p>Productos únicos impresos en 3D para todos los gustos</p>
 </header>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Menu</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">Menú</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          <a class="nav-link active" href="#">Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#contacto">Contáctenos</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#productos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#productos" role="button" data-bs-toggle="dropdown">
             Productos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Figuras</a></li>
-            <li><a class="dropdown-item" href="#">Llaveros</a></li>
-            <li><a class="dropdown-item" href="#">Soportes</a></li>
+            <li><a class="dropdown-item" href="#figuras">Figuras</a></li>
+            <li><a class="dropdown-item" href="#llaveros">Llaveros</a></li>
+            <li><a class="dropdown-item" href="#soportes">Soportes</a></li>
           </ul>
         </li>
       </ul>
@@ -319,6 +312,8 @@
   </div>
 </div>
 
+<div class="wave-container"></div>
+
 <!-- Sección de contacto -->
 <div class="contact-section" id="contacto">
   <div class="contact-form">
@@ -336,8 +331,12 @@
       <button type="submit">Enviar</button>
     </form>
   </div>
-  <div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d825.9762736586437!2d-84.17002350363026!3d10.014591522246365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fb419107df0d%3A0x7d8316b7fae8987e!2sSoda%20Los%20Camiona!5e0!3m2!1ses-419!2scr!4v1754349879188!5m2!1ses-419!2scr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+  <div class="map-container">
+    <h2>Encuéntranos aquí</h2>
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
   </div>
 </div>
 
@@ -346,10 +345,10 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <a href="https://wa.me/50688019404" class="whatsapp-float" target="_blank" aria-label="Chat en WhatsApp">
   <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
 </a>
 
 </body>
 </html>
+
